@@ -20,7 +20,7 @@ function App() {
   },[])
   
   //Filter countries by searched term
-  const countriesToShow = countries.filter((country) => country.name.common.toLowerCase().startsWith(searchTerm) )
+  const countriesToShow = countries.filter((country) => country.name.common.toLowerCase().includes(searchTerm) )
 
    //Handler for filtering by country name 
    const handleSearchTerm = (e) => {
@@ -29,11 +29,16 @@ function App() {
     
   }
 
+  //Handler for Show button
+  const handleShowButton = () => {
+
+  }
+
 
   return (
     <div >  
       <Filter handleSearchTerm={handleSearchTerm} />
-      <Countries countries={countriesToShow}/>
+      <Countries countries={countriesToShow} handleSearch={handleSearchTerm}/>
     </div>
   );
 }
